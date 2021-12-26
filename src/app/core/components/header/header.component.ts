@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
         <!--      end links desktop-->
 
         <!-- menu -->
-        <lbk-menu [(open)]="openModal"></lbk-menu>
+        <lbk-menu class="lg:hidden" [(open)]="openModal"></lbk-menu>
         <!-- end menu -->
       </nav>
       <!--    end mobile navbar normal-->

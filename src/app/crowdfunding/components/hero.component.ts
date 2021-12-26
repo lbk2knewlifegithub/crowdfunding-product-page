@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section>
-      <img src="assets/images/image-hero-mobile.jpg" alt="Hero" />
+      <img class="w-full object-cover object-center aspect-[16/12] md:aspect-video" src="assets/images/image-hero-mobile.jpg" alt="Hero" />
     </section>
   `,
 })

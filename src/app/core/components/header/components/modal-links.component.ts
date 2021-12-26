@@ -23,13 +23,13 @@ import { debounceTime, fromEvent } from 'rxjs';
       *ngIf="open"
       @fadeInOnEnter
       @fadeOutOnLeave
-      class="fixed top-[6rem] left-0 w-full h-screen bg-black/30 z-50"
+      class="fixed top-0 left-0 w-full h-screen bg-black/30 z-50"
     >
       <!--      links-->
       <ul
         @zoomInDownOnEnter
         @zoomOutUpOnLeave
-        class="mx-auto max-w-sm bg-white font-semibold  text-xl rounded-lg py-6 tracking-wider"
+        class="mt-32 mx-auto max-w-sm bg-white font-semibold  text-xl rounded-lg py-6 tracking-wider"
       >
         <li><a class="animate-link" routerLink="/">About</a></li>
         <li><a class="animate-link" routerLink="/">Discover</a></li>
