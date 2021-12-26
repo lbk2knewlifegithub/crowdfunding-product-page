@@ -1,0 +1,51 @@
+<section>
+  <!--   mobile-->
+  <div>
+    <ul>
+      <li>
+        <h1>${{stats.totalDollars | number}}</h1>
+        <p>of $100,000 backed</p>
+      </li>
+      <li>
+        <h1>{{stats.totalBacker}}</h1>
+        <p>total backers</p>
+      </li>
+      <li>
+        <h1>{{stats.dayLeft}}</h1>
+        <p>days left</p>
+        <div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--  end mobile-->
+
+  <!--  desktop-->
+  <div>
+    <ul>
+      <!--      total dollar-->
+      <li>
+        <h1>${{stats.totalDollars | number}}</h1>
+        <p>of $100,000 backed</p>
+      </li>
+      <!--      end total dollar-->
+
+      <!--      total backer-->
+      <li>
+        <h1>{{stats.totalBacker}}</h1>
+        <p>total backers</p>
+      </li>
+      <!--      end total backer-->
+
+      <!--      day left-->
+      <li>
+        <h1>{{stats.dayLeft}}</h1>
+        <p>days left</p>
+      </li>
+      <!--      end day left-->
+    </ul>
+    <div>
+    </div>
+  </div>
+  <!--  end desktop-->
+</section>

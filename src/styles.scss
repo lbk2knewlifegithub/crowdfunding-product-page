@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  :root {
+    --moderate-cyan: 176, 50%, 47%;
+    --dark-cyan: 176, 72%, 28%;
+    --black: 0, 0%, 0%;
+    --dark-gray: 0, 0%, 48%;
+    --white: 0, 0%, 100%;
+  }
+
+  //make default form look nice
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="month"],
+  [type="time"],
+  [type="week"],
+  [multiple] {
+    @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
+  }
+
+  [type="checkbox"],
+  [type="radio"] {
+    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
+  }
+}
+
+// input.ng-invalid.ng-touched {
+//   @apply border-2 border-danger;
+// }
+
+@layer components {
+  .container-large {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  //CUSTOM APPLY HERE
+  .btn {
+    @apply inline-block text-white font-bold text-center rounded-lg py-4;
+  }
+
+  .btn-primary {
+    @apply bg-button-primary;
+    box-shadow: 0px 8px 2px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-success {
+    @apply bg-button-success uppercase tracking-wider;
+    box-shadow: inset 0px -8px 8px rgba(0, 0, 0, 0.25);
+  }
+}

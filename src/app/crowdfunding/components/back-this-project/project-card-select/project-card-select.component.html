@@ -1,0 +1,60 @@
+<div>
+  <div>
+    <!--  navbar-->
+    <nav>
+      <!-- <lbk-checkbox-gradient [checkBox]='checkBox' (click)='onCheck()'></lbk-checkbox-gradient> -->
+
+      <section>
+        <!--          title-->
+        <h3>{{project.name}}</h3>
+        <!--          end title-->
+
+        <!--          pledge-->
+        <p *ngIf='project.pledge'>Pledge ${{project.pledge}} or more</p>
+        <!--          end pledge-->
+      </section>
+
+      <!--        left desktop-->
+      <div *ngIf='project.left'>
+        <h2>{{project.left}}</h2>
+        <p>left</p>
+      </div>
+      <!--        end left desktop-->
+    </nav>
+    <!--  end navbar-->
+
+    <!--          description-->
+    <p>{{project.description}}</p>
+    <!--          end description-->
+
+    <!--        left-->
+    <div *ngIf='project.left'>
+      <h2>{{project.left}}</h2>
+      <p>left</p>
+    </div>
+    <!--        end left-->
+  </div>
+
+  <!--  pledge  form-->
+  <div *ngIf='checkBox.checked'>
+    <div>
+      <!--    title-->
+      <p>Enter your pledge</p>
+      <!--    end title-->
+
+      <form>
+        <!--        pledge input-->
+        <div>
+          <p>$</p>
+          <input #pledge [value]='project.pledge' type='text'>
+        </div>
+        <!--        end pledge input-->
+
+        <!--        continue-->
+        <!-- <button type='button' (click)='onSubmitPledge(pledge)'>Continue</button> -->
+        <!--        end continue-->
+      </form>
+    </div>
+  </div>
+  <!--  end pledge form-->
+</div>
