@@ -4,36 +4,29 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'lbk-project-riser',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <section>
-      <div>
-        <!--    logo-->
-        <!-- <lbk-logo></lbk-logo> -->
-        <!--    end logo-->
+    <section class="relative rounded-lg shadow-md px-6 pt-12 pb-10 space-y-6 bg-white">
+      <!--    logo-->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <img src="assets/images/logo-mastercraft.svg" alt="" />
+      </div>
+      <!--    end logo-->
 
-        <!--    title-->
-        <h2>Mastercraft Bamboo Monitor Riser</h2>
-        <!--    end title-->
+      <!-- text -->
+      <div class="text-center space-y-4">
+        <h1 class="font-bold text-2xl">Mastercraft Bamboo Monitor Riser</h1>
 
-        <!--    description -->
-        <p>
+        <p class="text-muted">
           A beautiful handcrafted monitor stand to reduce neck and eye strain.
         </p>
-        <!--    end description -->
+      </div>
+      <!-- end text -->
 
-        <!--    actions-->
-        <section>
-          <!--      back to project-->
-          <!-- <a (click)="isActiveModal = true"  href="#" >Back this project</a > -->
-          <!--      end back to project-->
+      <div class="flex items-center justify-between">
+        <button class="btn btn-primary">Back this project</button>
 
-          <!--      bookmark-->
-          <div>
-            <img src="/assets/images/icon-bookmark.svg" alt="Bookmark" />
-            <p>Bookmark</p>
-          </div>
-          <!--      end bookmark-->
-        </section>
-        <!--    end actions-->
+        <!--      bookmark-->
+        <lbk-bookmark></lbk-bookmark>
+        <!--      end bookmark-->
       </div>
     </section>
   `,

@@ -1,7 +1,7 @@
-export interface Project {
+export interface Pledge {
   id: string;
   name: string;
-  pledge: number;
+  amount: number;
   description: string;
   left: number;
 }

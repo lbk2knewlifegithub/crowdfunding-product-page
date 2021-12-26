@@ -3,4 +3,3 @@ export interface Stats {
   totalBacker: number;
   dayLeft: number;
 }
-

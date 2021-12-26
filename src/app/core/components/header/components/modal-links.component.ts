@@ -12,8 +12,6 @@ import {
   template: `
     <div *ngIf="open">
       <nav>
-        <lbk-logo></lbk-logo>
-
         <!--    close menu-->
         <img
           (click)="onMenu()"

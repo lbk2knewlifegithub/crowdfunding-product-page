@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <lbk-header></lbk-header>
-    <!-- <router-outlet></router-outlet> -->
+    <router-outlet></router-outlet>
     <!-- <lbk-footer></lbk-footer> -->
   `,
 })

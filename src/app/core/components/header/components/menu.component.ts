@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'lbk-logo',
+  selector: 'lbk-menu',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <!--    logo-->
-    <img src="/assets/images/logo.svg" alt="Logo" />
-    <!--    end logo-->
+    <button>
+      <img src="/assets/images/icon-hamburger.svg" alt="Hamburger" />
+    </button>
   `,
 })
-export class LogoComponent {}
+export class MenuComponent {}

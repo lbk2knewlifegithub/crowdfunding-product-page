@@ -1,0 +1,15 @@
+section {
+  @apply grid space-y-6 justify-items-center py-10 text-center shadow-md;
+
+  div {
+    @apply grid justify-items-center;
+
+    h3 {
+      @apply text-3xl font-bold;
+    }
+
+    p {
+      @apply text-muted text-sm mt-1;
+    }
+  }
+}

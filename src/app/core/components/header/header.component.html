@@ -1,31 +1,18 @@
-<header>
-  <div class='container'>
-    <!--    mobile navbar normal-->
-    <nav *ngIf='!active' class='normal flex-between-row'>
-      <!--    logo-->
-      <lbk-logo></lbk-logo>
-      <!--    end logo-->
+<header class="absolute w-full">
+  <nav class="container flex items-center justify-between mt-8">
+    <!--    logo-->
+    <div>
+      <img src="assets/images/logo.svg" alt="Logo">
+    </div>
+    <!--    end logo-->
 
-      <!--      links desktop-->
-      <ul class='links-desktop flex-center-row'>
-        <li>
-          <a routerLink="/">About</a>
-        </li>
-        <li>
-          <a routerLink="/">Discover</a>
-        </li>
-        <li>
-          <a routerLink="/">Get Started</a>
-        </li>
-      </ul>
-      <!--      end links desktop-->
+    <!--      links desktop-->
+    <lbk-links-header class="hidden lg:block"></lbk-links-header>
+    <!--      end links desktop-->
 
-      <!--    hamburger-->
-      <img class='icon' (click)='active = true' src='/assets/images/icon-hamburger.svg' alt='Hamburger'>
-      <!--    end hamburger-->
-    </nav>
-    <!--    end mobile navbar normal-->
-
-    <!--mobile navbar active-->
-  </div>
+    <!-- menu -->
+    <lbk-menu></lbk-menu>
+    <!-- end menu -->
+  </nav>
+  <!--    end mobile navbar normal-->
 </header>

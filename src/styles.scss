@@ -42,16 +42,13 @@
   }
   //CUSTOM APPLY HERE
   .btn {
-    @apply inline-block text-white font-bold text-center rounded-lg py-4;
+    @apply inline-block text-white font-bold text-center py-4 px-12  rounded-full tracking-wide;
   }
 
   .btn-primary {
-    @apply bg-button-primary;
-    box-shadow: 0px 8px 2px rgba(0, 0, 0, 0.15);
+    @apply bg-primary shadow-md shadow-primary;
   }
-
-  .btn-success {
-    @apply bg-button-success uppercase tracking-wider;
-    box-shadow: inset 0px -8px 8px rgba(0, 0, 0, 0.25);
+  .btn-secondary {
+    @apply bg-muted shadow-md shadow-muted;
   }
 }

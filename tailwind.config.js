@@ -25,6 +25,7 @@ module.exports = {
     extend: {
       colors: {
         primary: withOpacity("--moderate-cyan"),
+        muted: withOpacity("--dark-gray"),
       },
       // create custom fonts here
       fontFamily: {
@@ -32,7 +33,7 @@ module.exports = {
       },
       // create custom text colors here
       textColor: {
-        fill: withOpacity("--black"),
+        fill: withOpacity("black"),
         muted: withOpacity("--dark-gray"),
         inverted: withOpacity("--white"),
       },

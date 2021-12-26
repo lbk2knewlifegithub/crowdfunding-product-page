@@ -1,2 +1,2 @@
-export * from "./project.model";
+export * from "./pledge.model";
 export * from "./stats.model";
