@@ -25,7 +25,7 @@ import { debounceTime, fromEvent } from 'rxjs';
       @fadeOutOnLeave
       class="fixed top-0 left-0 w-full h-screen bg-black/30 z-40 pointer-events-none"
     >
-      <div class="container">
+      <div class="container pointer-events-auto">
         <!--      links-->
         <ul
           @zoomInDownOnEnter

@@ -4,6 +4,8 @@ import {
   HeroComponent,
   PledgePreviewComponent,
   PledgePreviewListComponent,
+  ProcessBarComponent,
+  SelectRewardButtonComponent,
   StatsComponent
 } from './components';
 import { BookmarkComponent } from './components/bookmark.component';
@@ -18,6 +20,8 @@ const COMPONENTS = [
   HeroComponent,
   BookmarkComponent,
   PledgePreviewComponent,
+  ProcessBarComponent,
+  SelectRewardButtonComponent,
 ];
 const CONTAINERS = [CrowdfundingPageComponent];
 

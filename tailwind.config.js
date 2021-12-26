@@ -41,6 +41,7 @@ module.exports = {
       // create custom background colors here
       backgroundColor: {
         fill: withOpacity("--white"),
+        muted: withOpacity("--dark-gray"),
       },
     },
   },

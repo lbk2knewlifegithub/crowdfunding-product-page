@@ -1,5 +1,6 @@
 export interface Stats {
-  totalDollars: number;
-  totalBacker: number;
-  dayLeft: number;
+  pledged: number;
+  backers: number;
+  left: number;
+  goal: number;
 }

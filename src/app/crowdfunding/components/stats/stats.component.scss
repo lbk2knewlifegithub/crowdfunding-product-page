@@ -1,15 +1,19 @@
 section {
-  @apply grid space-y-6 justify-items-center py-10 text-center shadow-md;
+  @apply grid gap-6 py-10 text-center shadow-md px-6 sm:px-10;
 
-  div {
-    @apply grid justify-items-center;
+  ul {
+    @apply text-center grid justify-items-center gap-3 divide-y-2 sm:grid-cols-3 sm:divide-x-2 sm:divide-y-0 sm:gap-0 sm:justify-items-start;
 
-    h3 {
-      @apply text-3xl font-bold;
-    }
+    li {
+      @apply pt-5 first:pt-0 sm:pt-0 sm:pl-12 sm:first:pl-0 sm:text-left;
 
-    p {
-      @apply text-muted text-sm mt-1;
+      h3 {
+        @apply text-3xl font-bold;
+      }
+
+      p {
+        @apply text-muted text-sm mt-1;
+      }
     }
   }
 }

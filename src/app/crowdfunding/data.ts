@@ -28,7 +28,8 @@ export const pledges: Pledge[] = [
 ];
 
 export const stats: Stats = {
-  dayLeft: 56,
-  totalBacker: 5007,
-  totalDollars: 89914,
+  left: 56,
+  backers: 5007,
+  pledged: 89_914,
+  goal: 100_000,
 };

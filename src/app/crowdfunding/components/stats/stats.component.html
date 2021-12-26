@@ -1,27 +1,28 @@
 <section>
-  <!-- total dollars -->
-  <div>
-    <h3>${{stats.totalDollars | number}}</h3>
-    <p>of $100,000 backed</p>
-
-    <div class="w-20 h-[1px] bg-gray-200 mt-4"></div>
-  </div>
-  <!-- end total dollars -->
-
-
-  <!-- total backers -->
-  <div>
-    <h3>{{stats.totalBacker}}</h3>
-    <p>total backers</p>
-    <div class="w-20 h-[1px] bg-gray-200 mt-4"></div>
-  </div>
-  <!-- end total backers -->
+  <ul>
+    <!-- total pledge -->
+    <li>
+      <h3>${{stats.pledged | number}}</h3>
+      <p>of $100,000 backed</p>
+    </li>
+    <!-- end total pledge -->
 
 
-  <!-- days left -->
-  <div>
-    <h3>{{stats.dayLeft}}</h3>
-    <p>days left</p>
-  </div>
-  <!-- end days left -->
+    <!-- total backers -->
+    <li>
+      <h3>{{stats.backers | number}}</h3>
+      <p>total backers</p>
+    </li>
+    <!-- end total backers -->
+
+
+    <!-- days left -->
+    <li>
+      <h3>{{stats.left}}</h3>
+      <p>days left</p>
+    </li>
+    <!-- end days left -->
+  </ul>
+
+  <lbk-process-bar [fill]="fill" class="block w-full !mt-2"></lbk-process-bar>
 </section>

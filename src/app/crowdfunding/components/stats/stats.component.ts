@@ -9,4 +9,8 @@ import { Stats } from '@lbk/crowdfunding/models';
 })
 export class StatsComponent {
   @Input() stats!: Stats;
+
+  get fill(): number {
+    return this.stats.pledged / this.stats.goal;
+  }
 }
