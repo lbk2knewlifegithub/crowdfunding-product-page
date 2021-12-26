@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
       <lbk-hero></lbk-hero>
 
       <div class="container grid gap-8 mb-40">
-        <lbk-project-riser class="block -mt-14 z-50"></lbk-project-riser>
+        <lbk-project-riser class="block -mt-14 z-20"></lbk-project-riser>
 
         <lbk-stats *ngIf="stats$ | async as stats" [stats]="stats"></lbk-stats>
 
@@ -27,8 +27,8 @@ export class CrowdfundingPageComponent {
   stats$: Observable<Stats> = of(fromData.stats);
 
   constructor() {
-    setTimeout(() => {
-      window.scrollTo(0, document.body.scrollHeight);
-    }, 100);
+    // setTimeout(() => {
+    //   window.scrollTo(0, document.body.scrollHeight);
+    // }, 100);
   }
 }

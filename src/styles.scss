@@ -51,4 +51,17 @@
   .btn-secondary {
     @apply bg-muted shadow-md shadow-muted;
   }
+
+  .animate-link {
+    @apply inline-block relative overflow-hidden;
+
+    &:hover:after {
+        left: 0;
+      }
+
+    &:after {
+      content: "";
+      @apply duration-300 absolute bottom-0 left-full w-full h-1 bg-primary;
+    }
+  }
 }
