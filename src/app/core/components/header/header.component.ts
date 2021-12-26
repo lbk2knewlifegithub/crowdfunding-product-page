@@ -3,12 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'lbk-header',
   template: `
-    <header class="absolute w-full">
+    <header class="absolute w-full z-50">
       <nav class="container flex items-center justify-between mt-8">
         <!--    logo-->
-        <div>
+        <a class="block" routerLink="/">
           <img src="assets/images/logo.svg" alt="Logo" />
-        </div>
+        </a>
         <!--    end logo-->
 
         <!--      links desktop-->

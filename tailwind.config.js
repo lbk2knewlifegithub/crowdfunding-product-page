@@ -25,6 +25,7 @@ module.exports = {
     extend: {
       colors: {
         primary: withOpacity("--moderate-cyan"),
+        'primary-900': withOpacity("--dark-cyan"),
         muted: withOpacity("--dark-gray"),
       },
       // create custom fonts here

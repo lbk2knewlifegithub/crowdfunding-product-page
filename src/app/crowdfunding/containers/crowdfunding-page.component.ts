@@ -10,7 +10,9 @@ import { Observable, of } from 'rxjs';
       <lbk-hero></lbk-hero>
 
       <div class="container grid gap-8 mb-40">
-        <lbk-project-riser class="block -mt-14 z-20"></lbk-project-riser>
+        <lbk-project-riser
+          class="w-full -mt-14 z-20 max-w-3xl mx-auto md:-mt-16 lg:-mt-20"
+        ></lbk-project-riser>
 
         <lbk-stats *ngIf="stats$ | async as stats" [stats]="stats"></lbk-stats>
 

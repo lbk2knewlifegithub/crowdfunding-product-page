@@ -42,11 +42,11 @@
   }
   //CUSTOM APPLY HERE
   .btn {
-    @apply inline-block text-white font-bold text-center py-4 px-12  rounded-full tracking-wide;
+    @apply duration-500 inline-block text-white font-bold text-center py-4 px-8  rounded-full tracking-wide md:px-12;
   }
 
   .btn-primary {
-    @apply bg-primary shadow-md shadow-primary;
+    @apply bg-primary shadow-md shadow-primary hover:bg-primary-900 hover:shadow-primary-900;
   }
   .btn-secondary {
     @apply bg-muted shadow-md shadow-muted;
