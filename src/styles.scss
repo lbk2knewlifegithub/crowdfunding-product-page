@@ -12,29 +12,30 @@
     --white: 0, 0%, 100%;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   //make default form look nice
   [type="text"],
   [type="email"],
-  [type="url"],
   [type="password"],
   [type="number"],
-  [type="date"],
-  [type="month"],
-  [type="time"],
-  [type="week"],
   [multiple] {
-    @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
-  }
-
-  [type="checkbox"],
-  [type="radio"] {
-    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
+    @apply duration-150 w-full border-gray-300 border-2 rounded-lg shadow-sm  focus:border-primary focus:ring-0;
   }
 }
 
-// input.ng-invalid.ng-touched {
-//   @apply border-2 border-danger;
-// }
+input.ng-invalid.ng-touched {
+  @apply border-2 border-red-600;
+}
 
 @layer components {
   .container-large {
@@ -48,7 +49,7 @@
 
   //CUSTOM APPLY HERE
   .btn {
-    @apply duration-500 inline-block text-white font-semibold text-center py-3 px-8  rounded-full tracking-wide md:px-10;
+    @apply duration-500 inline-block text-white font-semibold text-center py-3 px-8  rounded-full tracking-wide md:px-10 disabled:opacity-50;
   }
 
   .btn-primary {

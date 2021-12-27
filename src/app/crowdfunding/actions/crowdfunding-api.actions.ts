@@ -24,3 +24,12 @@ export const loadStatsFailure = createAction(
   '[Crowdfunding/API] Load Stats Failure',
   props<{ error: any }>()
 );
+
+/**
+ * Pledge action
+ */
+export const pledgeSuccess = createAction('[Crowdfunding/API] Pledge Success');
+export const pledgeFailure = createAction(
+  '[Crowdfunding/API] Pledge Failure',
+  props<{ error: any }>()
+);

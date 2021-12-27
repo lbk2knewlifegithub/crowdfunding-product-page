@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
 import { Pledge } from '@lbk/crowdfunding/models';
 
 @Component({
@@ -7,7 +13,7 @@ import { Pledge } from '@lbk/crowdfunding/models';
   template: `
     <div
       [ngClass]="{ 'opacity-50 pointer-events-none': isOutOfStock }"
-      class="py-7 px-6 border rounded-xl space-y-6"
+      class="py-7 px-6 border rounded-lg space-y-6"
     >
       <div class="grid md:grid-cols-2">
         <!-- name -->
@@ -34,7 +40,8 @@ import { Pledge } from '@lbk/crowdfunding/models';
         <!-- end left -->
 
         <lbk-select-reward-button
-        class="block md:justify-self-end"
+          (click)="reward.emit()"
+          class="block md:justify-self-end"
           [available]="!isOutOfStock"
         ></lbk-select-reward-button>
       </div>
@@ -43,6 +50,7 @@ import { Pledge } from '@lbk/crowdfunding/models';
 })
 export class PledgePreviewComponent {
   @Input() pledge!: Pledge;
+  @Output() reward = new EventEmitter<void>();
 
   get isOutOfStock(): boolean {
     return this.pledge.left === 0;

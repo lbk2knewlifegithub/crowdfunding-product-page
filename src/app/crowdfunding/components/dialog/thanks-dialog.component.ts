@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'lbk-thanks',
@@ -17,8 +18,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         completed.
       </p>
 
-      <button class="btn btn-primary mt-2">Got it</button>
+      <button mat-dialog-close class="btn btn-primary mt-2">Got it</button>
     </div>
   `,
 })
-export class ThanksComponent {}
+export class ThanksComponent {
+}

@@ -2,7 +2,15 @@ import { Pledge, Stats } from './models';
 
 export const pledges: Pledge[] = [
   {
-    id: '1',
+    id: 0,
+    name: 'Pledge with no reward',
+    amount: 0,
+    description:
+      'Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.',
+    left: 0,
+  },
+  {
+    id: 1,
     name: 'Bamboo Stand',
     amount: 25,
     description:
@@ -10,7 +18,7 @@ export const pledges: Pledge[] = [
     left: 101,
   },
   {
-    id: '2',
+    id: 2,
     name: 'Black Edition Stand',
     amount: 75,
     description:
@@ -18,7 +26,7 @@ export const pledges: Pledge[] = [
     left: 64,
   },
   {
-    id: '3',
+    id: 3,
     name: 'Mahogany Special Edition',
     amount: 200,
     description:

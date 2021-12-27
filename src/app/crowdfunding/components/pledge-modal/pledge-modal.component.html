@@ -1,0 +1,43 @@
+<div [ngClass]="ngClass" class="duration-300 border divide-y rounded-lg py-7 ">
+  <div class="px-6 space-y-6">
+    <div class="flex items-center gap-3">
+      <!-- checkbox -->
+      <lbk-checkbox (click)="onCheck.emit()" [checked]="checked"></lbk-checkbox>
+      <!-- end checkbox -->
+
+      <div class="grid md:grid-cols-2">
+        <!-- name -->
+        <h3 class="font-black">{{ pledge.name }}</h3>
+        <!-- end name -->
+
+        <!-- pledge amount -->
+        <p *ngIf="pledge.amount > 0" class="text-sm font-semibold text-primary md:justify-self-end">
+          Pledge {{ pledge.amount | currency }} or more
+        </p>
+        <!-- end pledge amount -->
+      </div>
+    </div>
+
+    <!-- description -->
+    <p class="text-sm text-muted">{{ pledge.description }}</p>
+    <!-- end description -->
+
+    <div *ngIf="showLeft" class="grid gap-4 md:grid-cols-2">
+      <!-- left -->
+      <div class="flex items-center gap-2">
+        <span class="text-2xl font-black">{{ pledge.left }}</span>
+        <span class="text-muted">left</span>
+      </div>
+      <!-- end left -->
+    </div>
+
+
+    <!-- continue button for pledge without a reward -->
+    <button *ngIf="isDefaultPledge && checked" class="btn btn-primary">Continue</button>
+    <!-- end continue button for pledge without a reward -->
+  </div>
+
+
+
+  <lbk-enter-pledge class="block px-6 pt-4 mt-4" *ngIf="showEnterPledge" [pledge]="pledge.amount"></lbk-enter-pledge>
+</div>

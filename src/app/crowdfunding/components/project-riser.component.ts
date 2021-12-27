@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output
+} from '@angular/core';
 
 @Component({
   selector: 'lbk-project-riser',
@@ -24,16 +29,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <!-- end text -->
 
       <div class="flex items-center justify-between">
-        <button class="btn btn-primary">Back this project</button>
+        <button (click)="backThisProject.emit()" class="btn btn-primary">
+          Back this project
+        </button>
 
         <!--      bookmark-->
         <lbk-bookmark [bookmarked]="bookmarked"></lbk-bookmark>
         <!--      end bookmark-->
       </div>
-
     </section>
   `,
 })
 export class ProjectRiserComponent {
   bookmarked = false;
+  @Output() backThisProject = new EventEmitter<void>();
 }

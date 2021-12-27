@@ -1,5 +1,5 @@
 export interface Pledge {
-  id: string;
+  id: number;
   name: string;
   amount: number;
   description: string;

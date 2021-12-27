@@ -1,3 +1,4 @@
+import * as fromDialog from '@lbk/crowdfunding/reducers/dialog.reducer';
 import * as fromPledges from '@lbk/crowdfunding/reducers/pledges.reducer';
 import * as fromStats from '@lbk/crowdfunding/reducers/stats.reducer';
 import * as fromRoot from '@lbk/reducers';
@@ -13,6 +14,7 @@ export const crowdfundingFeatureKey = 'crowdfunding';
 export interface CrowdfundingState {
   [fromStats.statsFeatureKey]: fromStats.State;
   [fromPledges.pledgesFeatureKey]: fromPledges.State;
+  [fromDialog.dialogFeatureKey]: fromDialog.State;
 }
 
 export interface State extends fromRoot.State {
@@ -23,6 +25,7 @@ export function reducers(state: CrowdfundingState | undefined, action: Action) {
   return combineReducers({
     [fromPledges.pledgesFeatureKey]: fromPledges.reducer,
     [fromStats.statsFeatureKey]: fromStats.reducer,
+    [fromDialog.dialogFeatureKey]: fromDialog.reducer,
   })(state, action);
 }
 
@@ -55,3 +58,14 @@ export const selectStatsState = createSelector(
 );
 
 export const selectStats = createSelector(selectStatsState, fromStats.getStats);
+
+
+/**
+ * - Dialog selector
+ */
+export const selectDialogState = createSelector(
+  selectCrowdfundingState,
+  (state) => state.dialog
+);
+
+export const selectShowThanks = createSelector(selectDialogState, fromDialog.getShowThanks);
