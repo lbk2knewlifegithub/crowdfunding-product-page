@@ -4,7 +4,7 @@ import {
   CrowdfundingPageActions
 } from '@lbk/crowdfunding/actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, exhaustMap, map, of } from 'rxjs';
+import { catchError, debounceTime, exhaustMap, map, of } from 'rxjs';
 import { CrowdfundingService } from '../services/crowdfunding.service';
 import { DialogService } from '../services/dialog.service';
 
@@ -31,13 +31,21 @@ export class PledgesEffects {
       ofType(CrowdfundingPageActions.onBackThisProject),
       exhaustMap(({ id }) =>
         this._dialogService.openPledgesDialog(id).pipe(
-          map(() => CrowdfundingApiActions.pledgeSuccess()),
-          catchError((error) =>
-            of(CrowdfundingApiActions.pledgeFailure({ error }))
-          )
+          map(({ id, amount }) => CrowdfundingApiActions.pledgeSuccess({ id, amount })),
+          catchError((error) => of(CrowdfundingApiActions.pledgeFailure({ error })))
         )
       )
     )
+  );
+
+  openThanks$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(CrowdfundingPageActions.openThanks),
+        debounceTime(300),
+        map(() => this._dialogService.thankSupport())
+      ),
+    { dispatch: false }
   );
 
   constructor(

@@ -2,14 +2,18 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output
 } from '@angular/core';
+import { zoomInUpOnEnterAnimation } from 'angular-animations';
+
 
 @Component({
   selector: 'lbk-project-riser',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <section
+      @zoomInUpOnEnter
       class="relative rounded-lg shadow-md px-6 pt-12 pb-10 space-y-6 bg-white sm:px-10"
     >
       <!--    logo-->
@@ -34,13 +38,26 @@ import {
         </button>
 
         <!--      bookmark-->
-        <lbk-bookmark [bookmarked]="bookmarked"></lbk-bookmark>
+        <lbk-bookmark
+          (click)="onBookmark()"
+          [bookmarked]="bookmarked"
+        ></lbk-bookmark>
         <!--      end bookmark-->
       </div>
     </section>
   `,
+  animations: [zoomInUpOnEnterAnimation({ delay: 100 })],
 })
 export class ProjectRiserComponent {
-  bookmarked = false;
+  @Input() bookmarked!: boolean;
   @Output() backThisProject = new EventEmitter<void>();
+  @Output() setAsBookmark = new EventEmitter<void>();
+  @Output() unBookmark = new EventEmitter<void>();
+
+  onBookmark() {
+    console.log('bookmarked ' + this.bookmarked);
+
+    if (this.bookmarked) return this.unBookmark.emit();
+    this.setAsBookmark.emit();
+  }
 }

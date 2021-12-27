@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
   template: `
     <button
       [ngClass]="{ 'md:!bg-primary-900/20': bookmarked }"
-      class="flex gap-4 items-center  rounded-full hover:opacity-60 md:pr-6 md:bg-muted/20"
+      class="duration-300 flex gap-4 items-center  rounded-full hover:opacity-60 md:pr-6 md:bg-muted/20"
     >
       <!-- icon bookmark -->
       <div

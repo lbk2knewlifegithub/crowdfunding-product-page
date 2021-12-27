@@ -6,20 +6,13 @@ import * as fromCrowdfunding from '@lbk/crowdfunding/reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import {
-  AboutProjectComponent,
-  BookmarkComponent,
-  CheckboxComponent,
-  EnterPledgeComponent,
-  HeroComponent,
-  PledgeModalComponent,
-  PledgePreviewComponent,
-  PledgePreviewListComponent,
-  PledgesDialogComponent,
-  ProcessBarComponent,
-  ProjectRiserComponent,
-  SelectRewardButtonComponent,
-  StatsComponent,
-  ThanksComponent
+  fromDialog,
+  fromPledgeModal,
+  fromPledgePreview,
+  fromPledgePreviewList,
+  fromProjectRiser,
+  fromStats,
+  HeroComponent
 } from './components';
 import { CrowdfundingPageComponent } from './containers';
 import { CrowdfundingRoutingModule } from './crowdfunding-routing.module';
@@ -27,21 +20,15 @@ import { PledgesEffects, StatsEffects } from './effects';
 import { DialogService } from './services/dialog.service';
 
 const COMPONENTS = [
-  StatsComponent,
-  PledgePreviewListComponent,
-  ProjectRiserComponent,
+  fromDialog.COMPONENTS,
+  fromPledgeModal.COMPONENTS,
+  fromPledgePreviewList.COMPONENTS,
+  fromProjectRiser.COMPONENTS,
+  fromPledgePreview.COMPONENTS,
+  fromStats.COMPONENTS,
   HeroComponent,
-  BookmarkComponent,
-  PledgePreviewComponent,
-  ProcessBarComponent,
-  SelectRewardButtonComponent,
-  ThanksComponent,
-  AboutProjectComponent,
-  PledgesDialogComponent,
-  PledgeModalComponent,
-  CheckboxComponent,
-  EnterPledgeComponent,
 ];
+
 const CONTAINERS = [CrowdfundingPageComponent];
 
 @NgModule({

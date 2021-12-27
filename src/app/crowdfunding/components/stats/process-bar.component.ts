@@ -16,6 +16,6 @@ export class ProcessBarComponent {
   @Input() fill!: number; // %
 
   get width(): string {
-    return `${Math.floor(this.fill * 100)}%`;
+    return `${Math.min(Math.floor(this.fill * 100), 100)}%`;
   }
 }

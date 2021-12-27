@@ -13,7 +13,10 @@ import { CrowdfundingPageActions } from '../actions';
 
       <div class="container grid gap-8 mb-40 max-w-4xl">
         <lbk-project-riser
+          (setAsBookmark)="onSetAsBookmark()"
+          (unBookmark)="unBookmark()"
           (backThisProject)="onBackThisProject()"
+          [bookmarked]="(bookmarked$ | async)!"
           class="w-full -mt-14 z-20 md:-mt-16 lg:-mt-20"
         >
         </lbk-project-riser>
@@ -32,6 +35,7 @@ import { CrowdfundingPageActions } from '../actions';
 export class CrowdfundingPageComponent implements OnInit {
   pledges$!: Observable<Pledge[]>;
   stats$!: Observable<Stats | undefined>;
+  bookmarked$!: Observable<boolean>;
 
   constructor(private readonly _store: Store) {
     this.pledges$ = this._store
@@ -40,14 +44,12 @@ export class CrowdfundingPageComponent implements OnInit {
       .pipe(map((pledges) => pledges.filter((pledge) => pledge.id !== 0)));
 
     this.stats$ = this._store.select(fromCrowdfunding.selectStats);
-    setTimeout(() => {
-      // window.scrollTo(0, document.body.scrollHeight);
-      this.onBackThisProject();
-    }, 100);
 
-    // let dialogRef = dialog.open(PledgesDialogComponent, {
-    //   panelClass: 'pledges-dialog',
-    // });
+    this.bookmarked$ = this._store.select(fromCrowdfunding.selectBookmark);
+
+    // setTimeout(() => {
+    //   this.onBackThisProject();
+    // }, 100);
   }
 
   ngOnInit(): void {
@@ -60,5 +62,13 @@ export class CrowdfundingPageComponent implements OnInit {
 
   onReward({ id }: Pledge) {
     this._store.dispatch(CrowdfundingPageActions.onBackThisProject({ id }));
+  }
+
+  onSetAsBookmark() {
+    this._store.dispatch(CrowdfundingPageActions.setAsBookmark());
+  }
+
+  unBookmark() {
+    this._store.dispatch(CrowdfundingPageActions.unBookmark());
   }
 }

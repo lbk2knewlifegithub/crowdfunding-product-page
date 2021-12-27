@@ -17,7 +17,16 @@ export const reducer = createReducer(
   on(CrowdfundingApiActions.loadPledgesSuccess, (state, { pledges }) => ({
     ...state,
     pledges,
-  }))
+  })),
+  on(CrowdfundingApiActions.pledgeSuccess, (state, { id }) => {
+    return {
+      ...state,
+      pledges: state.pledges.map((pledge) => ({
+        ...pledge,
+        left: pledge.id === id ? Math.max(pledge.left - 1) : pledge.left,
+      })),
+    };
+  })
 );
 
 export const getPledges = (state: State) => state.pledges;

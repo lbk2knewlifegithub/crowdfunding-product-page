@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { slideInDownOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'lbk-header',
   template: `
-    <header class="absolute w-full z-50">
+    <header @slideInDownOnEnter class="absolute w-full z-50">
       <nav class="container flex items-center justify-between mt-8">
         <!--    logo-->
         <a class="block" routerLink="/">
@@ -24,6 +25,7 @@ import { Component } from '@angular/core';
 
     <lbk-modal-links [(open)]="openModal"></lbk-modal-links>
   `,
+  animations: [slideInDownOnEnterAnimation()],
 })
 export class HeaderComponent {
   openModal = false;

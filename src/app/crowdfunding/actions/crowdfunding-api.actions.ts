@@ -28,7 +28,11 @@ export const loadStatsFailure = createAction(
 /**
  * Pledge action
  */
-export const pledgeSuccess = createAction('[Crowdfunding/API] Pledge Success');
+export const pledgeSuccess = createAction(
+  '[Crowdfunding/API] Pledge Success',
+  props<{ id: number; amount: number }>()
+);
+
 export const pledgeFailure = createAction(
   '[Crowdfunding/API] Pledge Failure',
   props<{ error: any }>()

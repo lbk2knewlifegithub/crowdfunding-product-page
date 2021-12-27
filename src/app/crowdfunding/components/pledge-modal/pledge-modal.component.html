@@ -1,43 +1,54 @@
 <div [ngClass]="ngClass" class="duration-300 border divide-y rounded-lg py-7 ">
-  <div class="px-6 space-y-6">
-    <div class="flex items-center gap-3">
-      <!-- checkbox -->
-      <lbk-checkbox (click)="onCheck.emit()" [checked]="checked"></lbk-checkbox>
-      <!-- end checkbox -->
+  <div class="flex md:pl-6">
+    <!-- checkbox tablet-->
+    <lbk-checkbox class="hidden md:block" (click)="onCheck.emit()" [checked]="checked"></lbk-checkbox>
+    <!-- end checkbox tablet-->
 
-      <div class="grid md:grid-cols-2">
-        <!-- name -->
-        <h3 class="font-black">{{ pledge.name }}</h3>
-        <!-- end name -->
+    <div class="grid gap-4 px-6">
+      <div class="flex items-center gap-3 sm:gap-5">
+        <!-- checkbox mobile-->
+        <lbk-checkbox class="md:hidden" (click)="onCheck.emit()" [checked]="checked"></lbk-checkbox>
+        <!-- end checkbox mobile-->
 
-        <!-- pledge amount -->
-        <p *ngIf="pledge.amount > 0" class="text-sm font-semibold text-primary md:justify-self-end">
-          Pledge {{ pledge.amount | currency }} or more
-        </p>
-        <!-- end pledge amount -->
+        <div class="flex flex-row items-start justify-between md:w-full">
+
+          <div class="flex flex-col md:flex-row md:items-center md:gap-6">
+            <!-- name -->
+            <a routerLink="/" class="font-black link">{{ pledge.name }}</a>
+            <!-- end name -->
+
+            <!-- pledge amount -->
+            <p *ngIf="pledge.amount > 0" class="text-sm font-semibold text-primary md:justify-self-end lg:text-base">
+              Pledge {{ pledge.amount | currency }} or more
+            </p>
+            <!-- end pledge amount -->
+          </div>
+
+
+          <!-- left -->
+          <lbk-pledge-left class="hidden md:inline" *ngIf="showLeft" [left]="pledge.left"></lbk-pledge-left>
+          <!-- end left -->
+        </div>
       </div>
-    </div>
 
-    <!-- description -->
-    <p class="text-sm text-muted">{{ pledge.description }}</p>
-    <!-- end description -->
+      <!-- description -->
+      <p class="text-sm text-muted sm:text-base">{{ pledge.description }}</p>
+      <!-- end description -->
 
-    <div *ngIf="showLeft" class="grid gap-4 md:grid-cols-2">
       <!-- left -->
-      <div class="flex items-center gap-2">
-        <span class="text-2xl font-black">{{ pledge.left }}</span>
-        <span class="text-muted">left</span>
-      </div>
+      <lbk-pledge-left class="block md:hidden" *ngIf="showLeft" [left]="pledge.left"></lbk-pledge-left>
       <!-- end left -->
+
+
+      <!-- continue button for pledge without a reward -->
+      <div (click)="onPledged(0)" class="justify-self-end">
+        <button *ngIf="isDefaultPledge && checked" class="btn btn-primary">Continue</button>
+      </div>
+      <!-- end continue button for pledge without a reward -->
     </div>
 
-
-    <!-- continue button for pledge without a reward -->
-    <button *ngIf="isDefaultPledge && checked" class="btn btn-primary">Continue</button>
-    <!-- end continue button for pledge without a reward -->
   </div>
 
-
-
-  <lbk-enter-pledge class="block px-6 pt-4 mt-4" *ngIf="showEnterPledge" [pledge]="pledge.amount"></lbk-enter-pledge>
+  <lbk-enter-pledge (pledged)="onPledged($event)" class="block px-6 pt-4 mt-4" *ngIf="showEnterPledge"
+    [pledge]="pledge.amount"></lbk-enter-pledge>
 </div>

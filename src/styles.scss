@@ -42,9 +42,19 @@ input.ng-invalid.ng-touched {
     max-width: 1440px;
     margin: 0 auto;
   }
+
   .thanks-dialog {
     margin: 0 8px;
     max-width: 378px !important;
+  }
+
+  .pledges-dialog {
+    max-width: 50rem !important;
+    margin: 0 1rem;
+
+    @media (min-width: 640px) {
+      margin: 0 2rem;
+    }
   }
 
   //CUSTOM APPLY HERE
@@ -70,5 +80,9 @@ input.ng-invalid.ng-touched {
       content: "";
       @apply duration-300 absolute bottom-0 left-full w-full h-1 bg-primary;
     }
+  }
+
+  .link {
+    @apply duration-150 hover:text-primary;
   }
 }

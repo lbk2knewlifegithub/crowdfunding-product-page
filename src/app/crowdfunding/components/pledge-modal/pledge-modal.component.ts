@@ -16,9 +16,17 @@ export class PledgeModalComponent {
   @Input() pledge!: Pledge;
   @Input() checked!: boolean;
   @Output() onCheck = new EventEmitter<void>();
+  @Output() pledged = new EventEmitter<Pledge>();
 
   get isOutOfStock(): boolean {
     return this.pledge.left <= 0;
+  }
+
+  onPledged(amount: number) {
+    this.pledged.emit({
+      ...this.pledge,
+      amount,
+    });
   }
 
   get showEnterPledge(): boolean {
