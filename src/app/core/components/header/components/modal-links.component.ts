@@ -30,7 +30,7 @@ import { debounceTime, fromEvent } from 'rxjs';
         <ul
           @zoomInDownOnEnter
           @zoomOutUpOnLeave
-          class="mt-32 mx-auto max-w-sm bg-white font-semibold  text-xl rounded-lg py-6 tracking-wider"
+          class="mt-32 mx-auto max-w-sm bg-white font-medium  text-lg rounded-lg py-6 tracking-wider"
         >
           <li><a class="animate-link" routerLink="/">About</a></li>
           <li><a class="animate-link" routerLink="/">Discover</a></li>
@@ -45,7 +45,7 @@ import { debounceTime, fromEvent } from 'rxjs';
     `
       ul {
         li {
-          @apply py-6 border-b px-8 last:border-none last:pb-0 first:pt-0;
+          @apply py-4 border-b px-8 last:border-none last:pb-0 first:pt-0;
         }
       }
     `,

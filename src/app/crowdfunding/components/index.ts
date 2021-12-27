@@ -4,4 +4,6 @@ export * from './pledge-preview-list.component';
 export * from './stats/stats.component';
 export * from './process-bar.component';
 export * from './select-reward-button.component';
+export * from './dialog';
+export * from './about-project.component';
 

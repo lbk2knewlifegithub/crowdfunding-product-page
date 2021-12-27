@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
-import * as fromData from '@lbk/crowdfunding/data';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Pledge, Stats } from '@lbk/crowdfunding/models';
-import { Observable, of } from 'rxjs';
+import * as fromCrowdfunding from '@lbk/crowdfunding/reducers';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { CrowdfundingPageActions } from '../actions';
 
 @Component({
   selector: 'lbk-home',
@@ -23,13 +26,26 @@ import { Observable, of } from 'rxjs';
     </main>
   `,
 })
-export class CrowdfundingPageComponent {
-  pledges$: Observable<Pledge[]> = of(fromData.pledges);
-  stats$: Observable<Stats> = of(fromData.stats);
+export class CrowdfundingPageComponent implements OnInit {
+  pledges$!: Observable<Pledge[]>;
+  stats$!: Observable<Stats | undefined>;
 
-  constructor() {
+  constructor(public dialog: MatDialog, private readonly _store: Store) {
+    this.pledges$ = this._store.select(fromCrowdfunding.selectPledges);
+    this.stats$ = this._store.select(fromCrowdfunding.selectStats);
     // setTimeout(() => {
     //   window.scrollTo(0, document.body.scrollHeight);
     // }, 100);
+    // let dialogRef = dialog.open(ThanksComponent, {
+    //   panelClass: 'thanks-dialog',
+    // });
+
+    // let dialogRef = dialog.open(PledgesDialogComponent, {
+    //   panelClass: 'pledges-dialog',
+    // });
+  }
+
+  ngOnInit(): void {
+    this._store.dispatch(CrowdfundingPageActions.enter());
   }
 }

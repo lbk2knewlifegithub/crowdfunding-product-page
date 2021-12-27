@@ -1,4 +1,5 @@
 @import "tailwindcss/base";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
@@ -40,6 +41,11 @@
     max-width: 1440px;
     margin: 0 auto;
   }
+  .thanks-dialog {
+    margin: 0 8px;
+    max-width: 378px !important;
+  }
+
   //CUSTOM APPLY HERE
   .btn {
     @apply duration-500 inline-block text-white font-semibold text-center py-3 px-8  rounded-full tracking-wide md:px-10;
@@ -56,8 +62,8 @@
     @apply inline-block relative overflow-hidden;
 
     &:hover:after {
-        left: 0;
-      }
+      left: 0;
+    }
 
     &:after {
       content: "";
